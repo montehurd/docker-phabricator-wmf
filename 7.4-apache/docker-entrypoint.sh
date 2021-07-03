@@ -37,6 +37,7 @@ echo "Start configuration..."
 ./bin/config set log.ssh.path "$PHABRICATOR_LOG_SSH_PATH"
 ./bin/config set phd.log-directory "$PHABRICATOR_LOG_PHD_HOME"
 ./bin/config set phabricator.base-uri $PHABRICATOR_BASE_URI
+./bin/config set storage.mysql-engine.max-size 8388608
 
 [ -v PABRICATOR_CLUSTER_MAILERS_JSON ] && ./bin/config set cluster.mailers "$PABRICATOR_CLUSTER_MAILERS_JSON"
 [ -v PABRICATOR_METAMTA_DEFAULT_ADDRESS ] && ./bin/config set metamta.default-address $PABRICATOR_METAMTA_DEFAULT_ADDRESS
