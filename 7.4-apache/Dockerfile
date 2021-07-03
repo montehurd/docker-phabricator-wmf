@@ -26,7 +26,3 @@ COPY ./docker-entrypoint.sh /usr/local/bin/
 
 EXPOSE 80
 WORKDIR /opt/phabricator
-
-ENTRYPOINT ["docker-entrypoint.sh"]
-# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-CMD ["apache2-foreground"]
