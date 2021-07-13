@@ -23,11 +23,3 @@ services:
       MYSQL_USER: root
       MYSQL_PASS: root
       MYSQL_PORT: 3306
-      PHABRICATOR_HOST: 127.0.0.1
-      PHABRICATOR_BASE_URI: http://127.0.0.1
-      PHABRICATOR_REPO_LOCAL_PATH: /var/repo
-      PHABRICATOR_LOG_HOME: /var/log/phabricator
-      PHABRICATOR_LOG_ACCESS_PATH: /var/log/phabricator/access.log
-      PHABRICATOR_LOG_SSH_PATH: /var/log/phabricator/ssh.log
-      PHABRICATOR_LOG_PHD_HOME: /var/tmp/phd/log
-      PHABRICATOR_METAMTA_DEFAULT_ADDRESS: noreply@example.com
