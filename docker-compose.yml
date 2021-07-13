@@ -1,16 +1,19 @@
 version: "3.9"
 services:
   mysql:
-    image: mysql/mysql-server:5.7
+    image: mysql/mysql-server:8.0
     restart: always
-    command: --local-infile=0 --sql-mode="STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" --max-allowed-packet=32M --innodb-buffer-pool-size=256MB
+    # command: --local-infile=0 --sql-mode="STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" --max-allowed-packet=32M --innodb-buffer-pool-size=256MB
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_ROOT_HOST: "%"
+    volumes:
+      - ./data:/var/lib/mysql
   phabricator:
     depends_on:
       - mysql
     build: ./7.4-apache
+    entrypoint: bash -c "/usr/local/bin/docker-entrypoint.sh apache2-foreground;"
     ports:
       - "80:80"
     restart: always
@@ -18,4 +21,12 @@ services:
       MYSQL_HOST: mysql
       MYSQL_USER: root
       MYSQL_PASS: root
+      MYSQL_PORT: 3306
       PHABRICATOR_HOST: 127.0.0.1
+      PHABRICATOR_BASE_URI: http://127.0.0.1
+      PHABRICATOR_REPO_LOCAL_PATH: /var/repo
+      PHABRICATOR_LOG_HOME: /var/log/phabricator
+      PHABRICATOR_LOG_ACCESS_PATH: /var/log/phabricator/access.log
+      PHABRICATOR_LOG_SSH_PATH: /var/log/phabricator/ssh.log
+      PHABRICATOR_LOG_PHD_HOME: /var/tmp/phd/log
+      PHABRICATOR_METAMTA_DEFAULT_ADDRESS: noreply@example.com
