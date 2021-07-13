@@ -7,11 +7,11 @@ set -e
 
 while ! nc -vz ${MYSQL_HOST} ${MYSQL_PORT};
 do
-        echo Connect MySQL...
-        echo sleeping;
+        echo "Connect MySQL...";
+        echo "sleeping";
         sleep 1;
 done;
-echo MySQL Connected!;
+echo "MySQL Connected!";
 
 ./bin/storage -f upgrade || echo "Database has some errors."
 
