@@ -19,16 +19,14 @@ return array(
   //     ]
   //   ],
   // ],
-  // Default From e-mail address
+
   'metamta.default-address' => strval(getenv('PHABRICATOR_METAMTA_DEFAULT_ADDRESS')),
 
-  // Populate SQL info via environment
   'mysql.host' => strval(getenv('MYSQL_HOST')),
   'mysql.port' => strval(getenv('MYSQL_PORT')),
   'mysql.user' => strval(getenv('MYSQL_USER')),
   'mysql.pass' => strval(getenv('MYSQL_PASS')),
 
-  // Populate base URI via environment variable
   'phabricator.base-uri' => strval(getenv('PHABRICATOR_BASE_URI')),
   'pygments.enabled' => true,
   'storage.mysql-engine.max-size' => 8388608,
@@ -38,6 +36,7 @@ return array(
   'log.access.path' => strval(getenv('PHABRICATOR_LOG_ACCESS_PATH')),
   'log.ssh.path' => strval(getenv('PHABRICATOR_LOG_SSH_PATH')),
   'phd.log-directory' => strval(getenv('PHABRICATOR_LOG_PHD_HOME')),
+  'phabricator.timezone' => strval(getenv('DATE_TIMEZONE')),
 
   // Ignore some annoying things
   // 'config.ignore-issues' => [
@@ -46,8 +45,5 @@ return array(
   // ],
 
   // Show prototypes
-  // 'phabricator.show-prototypes' => true,
-
-  // Set a default timezone
-  // 'phabricator.timezone' => 'America/Toronto',
+  // 'phabricator.show-prototypes' => true,  
 );
