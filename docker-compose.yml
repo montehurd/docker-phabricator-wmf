@@ -13,8 +13,8 @@ services:
   phabricator:
     depends_on:
       - mysql
-    build: ./7.4-apache
-    entrypoint: bash -c "/usr/local/bin/docker-entrypoint.sh apache2-foreground;"
+    build: ./php-apache
+    entrypoint: bash -c "/usr/local/bin/entrypoint.sh apache2-foreground;"
     ports:
       - "80:80"
     restart: always

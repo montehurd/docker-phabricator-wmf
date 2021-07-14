@@ -22,7 +22,7 @@ RUN apt-get update && apt-get -y upgrade && \
 
 COPY ./000-default.conf /etc/apache2/sites-available/
 COPY ./php-user.ini /usr/local/etc/php/conf.d/
-COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY ./entrypoint.sh /usr/local/bin/
 
 EXPOSE 80
 WORKDIR /opt/phabricator
@@ -52,6 +52,6 @@ RUN chown www-data:www-data $logHome
 
 RUN sed -i "s/ENGINE=MyISAM/ENGINE=InnoDB/g" resources/sql/quickstart.sql
 
-# ENTRYPOINT ["docker-entrypoint.sh"]
+# ENTRYPOINT ["entrypoint.sh"]
 # CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 # CMD ["apache2-foreground"]
