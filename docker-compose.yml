@@ -18,6 +18,7 @@ services:
     ports:
       - "80:80"
     restart: always
+    # network_mode: host
     environment:
       MYSQL_HOST: mysql
       MYSQL_USER: root

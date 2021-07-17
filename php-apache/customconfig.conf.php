@@ -38,6 +38,10 @@ return array(
   'phd.log-directory' => strval(getenv('PHABRICATOR_LOG_PHD_HOME')),
   'phabricator.timezone' => strval(getenv('DATE_TIMEZONE')),
 
+  'security.require-https' => false,
+
+
+
   // Ignore some annoying things
   // 'config.ignore-issues' => [
   //   "cluster.mailers" => true,
