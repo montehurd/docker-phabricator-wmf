@@ -17,6 +17,7 @@ services:
     entrypoint: bash -c "/usr/local/bin/entrypoint.sh apache2-foreground;"
     ports:
       - "80:80"
+      - "443:443"
     restart: always
     # network_mode: host
     environment:

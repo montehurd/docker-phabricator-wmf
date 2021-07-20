@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-ARG phabricator_commit_hash="193798385bd3a7f72dca255e44f8112f4f8fc155"
+ARG phabricator_commit_hash="10b91709c37ff59ec3c116f3c92eb4b27a96570e"
 
 RUN apt-get update && apt-get -y upgrade && \
 	apt-get -y install git python3-pygments zlib1g-dev libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libldap2-dev netcat && \
@@ -14,11 +14,13 @@ RUN apt-get update && apt-get -y upgrade && \
 	echo "extension=xhprof.so" > pecl-xhprof.ini && \
 	cd - && \
 	cd /opt && \
-	git clone --single-branch --branch stable https://github.com/phacility/phabricator && \
-	git clone --single-branch --branch stable --depth 1 https://github.com/phacility/arcanist && \
+	git clone --branch stable https://phabricator.wikimedia.org/source/phabricator.git && \
+	git clone --branch stable https://phabricator.wikimedia.org/source/arcanist.git && \
 	cd - && \
 	cd /opt/phabricator && \
-	git checkout $phabricator_commit_hash
+	git config --global user.email "you@example.com" && \
+	git config --global user.name "Your Name" && \
+	git cherry-pick $phabricator_commit_hash
 
 COPY ./000-default.conf /etc/apache2/sites-available/
 COPY ./php-user.ini /usr/local/etc/php/conf.d/
@@ -29,7 +31,7 @@ WORKDIR /opt/phabricator
 
 ENV RUN_TIME=123                                                                                                       
 
-ENV PHABRICATOR_BASE_URI=http://127.0.0.1
+# ENV PHABRICATOR_BASE_URI=http://phabricator.local.com
 ENV PHABRICATOR_LOG_ACCESS_PATH=/var/log/phabricator/access.log
 ENV PHABRICATOR_LOG_SSH_PATH=/var/log/phabricator/ssh.log
 ENV PHABRICATOR_LOG_PHD_HOME=/var/tmp/phd/log
