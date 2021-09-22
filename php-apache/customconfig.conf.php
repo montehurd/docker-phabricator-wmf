@@ -27,7 +27,7 @@ return array(
   'mysql.user' => strval(getenv('MYSQL_USER')),
   'mysql.pass' => strval(getenv('MYSQL_PASS')),
 
-//  'phabricator.base-uri' => strval(getenv('PHABRICATOR_BASE_URI')),
+  'phabricator.base-uri' => strval(getenv('PHABRICATOR_BASE_URI')),
   'pygments.enabled' => true,
   'storage.mysql-engine.max-size' => 8388608,
   'phabricator.developer-mode' => true,

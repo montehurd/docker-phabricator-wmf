@@ -31,7 +31,7 @@ WORKDIR /opt/phabricator
 
 ENV RUN_TIME=123                                                                                                       
 
-# ENV PHABRICATOR_BASE_URI=http://phabricator.local.com
+ENV PHABRICATOR_BASE_URI=http://127.0.0.1
 ENV PHABRICATOR_LOG_ACCESS_PATH=/var/log/phabricator/access.log
 ENV PHABRICATOR_LOG_SSH_PATH=/var/log/phabricator/ssh.log
 ENV PHABRICATOR_LOG_PHD_HOME=/var/tmp/phd/log
