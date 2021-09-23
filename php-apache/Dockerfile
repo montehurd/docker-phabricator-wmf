@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-ARG phabricator_commit_hash="10b91709c37ff59ec3c116f3c92eb4b27a96570e"
+ARG phabricator_commit_hash="c0b503779bdee001af53ea8206e82e4560dbe180"
 
 RUN apt-get update && apt-get -y upgrade && \
 	apt-get -y install git python3-pygments zlib1g-dev libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libldap2-dev netcat && \
