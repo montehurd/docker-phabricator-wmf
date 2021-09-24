@@ -28,6 +28,8 @@ return array(
   'mysql.pass' => strval(getenv('MYSQL_PASS')),
 
   'phabricator.base-uri' => strval(getenv('PHABRICATOR_BASE_URI')),
+  'phabricator.allowed-uris' => array(strval(getenv('PHABRICATOR_ADDITIONAL_URI'))),
+
   'pygments.enabled' => true,
   'storage.mysql-engine.max-size' => 8388608,
   'phabricator.developer-mode' => true,

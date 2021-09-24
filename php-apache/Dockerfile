@@ -31,7 +31,6 @@ WORKDIR /opt/phabricator
 
 ENV RUN_TIME=123                                                                                                       
 
-ENV PHABRICATOR_BASE_URI=http://127.0.0.1
 ENV PHABRICATOR_LOG_ACCESS_PATH=/var/log/phabricator/access.log
 ENV PHABRICATOR_LOG_SSH_PATH=/var/log/phabricator/ssh.log
 ENV PHABRICATOR_LOG_PHD_HOME=/var/tmp/phd/log
@@ -41,7 +40,7 @@ ENV DATE_TIMEZONE=America/Los_Angeles
 
 # For PHP-based config
 COPY ./customconfig.conf.php ./conf/custom/
-ENV PHABRICATOR_ENV=custom/customconfig.conf.php
+COPY ./ENVIRONMENT ./conf/local/
 
 ARG repoPath=/var/repo
 ENV PHABRICATOR_REPO_LOCAL_PATH=$repoPath
