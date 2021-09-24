@@ -9,7 +9,7 @@ startfresh:
 	docker compose up
 
 createadminuser:
-# run immediately after 'startfresh' completes. creates a user named 'aaa' 
+# run immediately after 'startfresh' completes to create an admin user named 'aaa'. only works on macOS hosts.
 	osascript -e 'tell application "Google Chrome"' -e 'activate' -e 'open location "http://127.0.0.1/auth/register/"' -e 'delay 3' -e 'tell application "System Events"' -e 'keystroke tab' -e 'keystroke tab' -e 'keystroke tab' -e 'keystroke "aaa"' -e 'keystroke tab' -e 'keystroke "aaa"' -e 'keystroke tab' -e 'keystroke "aaa@aaa.com"' -e 'keystroke tab' -e 'keystroke return' -e 'end tell' -e 'end tell' || true
 
 addfakedata:
