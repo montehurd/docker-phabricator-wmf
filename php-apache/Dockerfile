@@ -37,6 +37,11 @@ ENV PHABRICATOR_LOG_PHD_HOME=/var/tmp/phd/log
 ENV PHABRICATOR_METAMTA_DEFAULT_ADDRESS=noreply@example.com
 ENV DATE_TIMEZONE=America/Los_Angeles
 
+# ENV PHABRICATOR_USERNAME=admin1
+# ENV PHABRICATOR_PASSWORD=dockerpass
+# ENV PHABRICATOR_EMAIL=test@wikimedia.org
+# ENV PHABRICATOR_FIRSTNAME=testFirstName
+# ENV PHABRICATOR_LASTNAME=testLastName
 
 # For PHP-based config
 COPY ./customconfig.conf.php ./conf/custom/

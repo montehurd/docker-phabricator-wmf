@@ -42,7 +42,7 @@ return array(
 
   'security.require-https' => false,
 
-
+  'auth.require-email-verification' => false,
 
   // Ignore some annoying things
   // 'config.ignore-issues' => [
